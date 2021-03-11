@@ -84,7 +84,7 @@ cd digital_normalization
 for file in *.pe.qc.fq.gz
 do
 normfile=${file/.qc.fq.gz/}
-normalize-by-median.py -p -M 4e9 -k 25 -C 25 -o ${normfile}normC25k25.ct  ${file}
+normalize-by-median.py -p -M 4e9 -k 25 -C 25 -s ${normfile}normC25k25.ct  ${file}
 done
 
 
@@ -92,7 +92,7 @@ for file in *.se.qc.fq.gz
 do
 normfilepair=${file/se.qc.fq.gz/normC25k25.ct}
 
-normalize-by-median.py -M 4e9 -k 25 -C 25 --loadhash ${normfilepair} -o ${normfilepair}  ${file}
+normalize-by-median.py -M 4e9 -k 25 -C 25 --loadhash ${normfilepair} -s ${normfilepair}  ${file}
 done
 
 
