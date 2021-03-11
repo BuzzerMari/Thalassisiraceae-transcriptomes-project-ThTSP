@@ -1,7 +1,7 @@
 # Thalassisiraceae-transcriptomes-project-ThTSP
 Workflow and files from analysis of 10 transcriptomes of species of Thalassiosiraceae from Antarctica and English Channel
 
-Raw data from transcriptomes is availeble at:
+Raw data from transcriptomes is available at:
 
 https://www.ncbi.nlm.nih.gov/bioproject/PRJNA706094
 
