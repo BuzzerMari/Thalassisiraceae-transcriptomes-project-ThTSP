@@ -81,13 +81,23 @@ mkdir digital_normalization
 cd digital_normalization
 
 #  First for paired reads
+for file in *.pe.qc.fq.gz
+do
+normfile=${file/.qc.fq.gz/}
+normalize-by-median.py -p -M 4e9 -k 25 -C 25 -o ${normfile}normC25k25.ct  ${file}
+done
 
-normalize-by-median.py --paired -ksize 20 --cutoff 25 -n_tables 4 \
-  --min-tablesize 4e9 --savetable normC25k20.ct \
-  ../*.pe.qc.fq.gz
 
-normalize-by-median.py --cutoff 25 --loadtable normC25k20.ct \
-  --savetable normC25k20.ct ../*.se.qc.fq.gz
+for file in *.se.qc.fq.gz
+do
+normfilepair=${file/se.qc.fq.gz/normC25k25.ct}
+
+normalize-by-median.py -M 4e9 -k 25 -C 25 --loadhash ${normfilepair} -o ${normfilepair}  ${file}
+done
+
+
+
+
 
 
 mkdir abundfilt
