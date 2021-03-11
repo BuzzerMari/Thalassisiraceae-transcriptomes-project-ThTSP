@@ -1,4 +1,3 @@
-# This is a basic workflow to help you get started with Actions
 # pre-processing of Thalassiosirales transcriptomes
 # Khmer and trimmomatic should be installed
 # fastq files must be in working directory & I have placed the adapter folder in the same directory otherwise change the path below
