@@ -1,10 +1,11 @@
 # pre-processing of Thalassiosirales transcriptomes using the https://khmer-protocols.readthedocs.io/en/latest/mrnaseq/index.html protocol
 
+# Requirements
+# Khmer V2.1.1, Fastx-toolkit V0.0.14 and trimmomatic V0.39 
 
-# Khmer, Fastx-toolkit and trimmomatic should be installed
-# fastq files must be in working directory & I have placed the adapter folder in the same directory otherwise change the path below
+# raw fastq files must be in working directory & I have placed the adapter folder in the same directory otherwise change the path below
 
-#Parameters; mismatches=2; palindrome clip threshold= 30; simple clip threshold=10
+#
 
 # trimmomatic
 
@@ -91,9 +92,6 @@ done
 
 mv ../*.ct .
 
-
-
-
 mkdir abundfilt
 cd abundfilt
 
@@ -103,5 +101,10 @@ filter-abund.py --variable-coverage ${file2} \
   --threads 8 ${file};
 done
 
-
+for file in *.abundfilt.pe
+do
+  file2=${file%%.fq.gz.keep.abundfilt.pe}.keep.abundfilt.fq
+  mv ${file} ${file2}
+  gzip ${file2}
+ done
 
