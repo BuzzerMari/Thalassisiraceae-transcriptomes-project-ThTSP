@@ -8,6 +8,7 @@ https://www.ncbi.nlm.nih.gov/bioproject/PRJNA706094
 Assemblies and secondary data:
 
 Transcriptome Assemblies : https://doi.org/10.5281/zenodo.4591037
+
 Peptide translation and expression quantification : https://doi.org/10.5281/zenodo.4596789
 
 
