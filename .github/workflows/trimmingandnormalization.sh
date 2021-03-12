@@ -1,7 +1,7 @@
 # pre-processing of Thalassiosirales transcriptomes using the https://khmer-protocols.readthedocs.io/en/latest/mrnaseq/index.html protocol
 
 
-# Khmer, Fastx and trimmomatic should be installed
+# Khmer, Fastx-toolkit and trimmomatic should be installed
 # fastq files must be in working directory & I have placed the adapter folder in the same directory otherwise change the path below
 
 #Parameters; mismatches=2; palindrome clip threshold= 30; simple clip threshold=10
