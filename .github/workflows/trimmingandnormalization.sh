@@ -98,7 +98,10 @@ mkdir abundfilt
 cd abundfilt
 
 for file in ../*.keep;
-do file2=${file/.qc.fq.gz.keep/.se.qc.fq.gz};
-filter-abund.py --variable-coverage ../diginorm/normC20k20.ct \
-  --threads 8 ../diginorm/*.keep
+do file2=${file/.qc.fq.gz.keep/normC25k25.ct};
+filter-abund.py --variable-coverage ${file2} \
+  --threads 8 ${file};
+done
+
+
 
