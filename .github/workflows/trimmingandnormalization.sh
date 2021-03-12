@@ -1,5 +1,7 @@
-# pre-processing of Thalassiosirales transcriptomes
-# Khmer and trimmomatic should be installed
+# pre-processing of Thalassiosirales transcriptomes using the https://khmer-protocols.readthedocs.io/en/latest/mrnaseq/index.html protocol
+
+
+# Khmer, Fastx and trimmomatic should be installed
 # fastq files must be in working directory & I have placed the adapter folder in the same directory otherwise change the path below
 
 #Parameters; mismatches=2; palindrome clip threshold= 30; simple clip threshold=10
@@ -81,27 +83,22 @@ mkdir digital_normalization
 cd digital_normalization
 
 #  First for paired reads
-for file in *.pe.qc.fq.gz
-do
-normfile=${file/.qc.fq.gz/}
-normalize-by-median.py -p -M 4e9 -k 25 -C 25 -s ${normfile}normC25k25.ct  ${file}
+for file in ../*.pe.qc.fq.gz; 
+do normfilese=${file/.pe.qc.fq.gz/.se.qc.fq.gz}; 
+normfile=${file/.qc.fq.gz/}; 
+normalize-by-median.py -p -M 4e9 -k 25 -C 25 -s ${normfile}normC25k25.ct  -u ${normfilese} ${file}; 
 done
 
-
-for file in *.se.qc.fq.gz
-do
-normfilepair=${file/se.qc.fq.gz/normC25k25.ct}
-
-normalize-by-median.py -M 4e9 -k 25 -C 25 --loadhash ${normfilepair} -s ${normfilepair}  ${file}
-done
-
-
+mv ../*.ct .
 
 
 
 
 mkdir abundfilt
 cd abundfilt
+
+for file in ../*.keep;
+do file2=${file/.qc.fq.gz.keep/.se.qc.fq.gz};
 filter-abund.py --variable-coverage ../diginorm/normC20k20.ct \
-  --threads ${THREADS:-1} ../diginorm/*.keep
+  --threads 8 ../diginorm/*.keep
 
