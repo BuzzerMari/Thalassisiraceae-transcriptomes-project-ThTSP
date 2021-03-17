@@ -26,8 +26,8 @@ done
 # transrate
 for file in *-Trinity.fasta
 do
-left={file/-Trinity.fasta/.left.fq.paired.fq}
-right={file/-Trinity.fasta/.right.fq.paired.fq}
+left={file/-Trinity.fasta/.left.fq}
+right={file/-Trinity.fasta/.right.fq}
 out=${file/-Trinity.fasta/}
 transrate --assembly ${file} --left ${left} --right ${right} --output Transrate-${out} --threads 8 
 done
@@ -46,8 +46,8 @@ done
 # transrate
 for file in *-Spades.fasta
 do
-left={file/-Spades.fasta/.left.fq.paired.fq}
-right={file/-Spades.fasta/.right.fq.paired.fq}
+left={file/-Spades.fasta/.left.fq}
+right={file/-Spades.fasta/.right.fq}
 out=${file/.fasta/}
 transrate --assembly ${file} --left ${left} --right ${right} --output Transrate-${out} --threads 8 
 done
