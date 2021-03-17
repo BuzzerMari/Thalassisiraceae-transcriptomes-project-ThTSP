@@ -12,7 +12,7 @@ Transcriptome Assemblies : https://doi.org/10.5281/zenodo.4591037
 Peptide translation and expression quantification : https://doi.org/10.5281/zenodo.4596789
 
 
-Annotations by strategy:
+Annotations by strategy: https://doi.org/10.5281/zenodo.4609198
 
 
 Final annotations tables:
