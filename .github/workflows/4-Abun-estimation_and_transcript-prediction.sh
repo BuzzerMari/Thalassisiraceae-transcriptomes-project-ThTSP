@@ -27,3 +27,17 @@ trinityrnaseq/util/abundance_estimates_to_matrix.pl --est_method salmon \
     --out_prefix salmon \
     --name_sample_by_basedir \
     --quant_files salmon.sf.file.list
+ 
+# Transcript prediction  of abundance of Thalassiosirales transcriptomes using TransDecoder
+# Requirements
+# TransDecoder 5.5.0
+
+
+for file in *-Trinity.fasta
+do
+
+TransDecoder.LongOrfs -t ${file}
+TransDecoder.Predict -t ${file}
+done
+
+    
