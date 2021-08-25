@@ -15,6 +15,6 @@ Peptide translation and expression quantification : https://doi.org/10.5281/zeno
 Annotations by strategy: https://doi.org/10.5281/zenodo.4609198
 
 
-Final annotations tables:
+Final annotations tables:https://doi.org/10.5281/zenodo.5256603
 
 
